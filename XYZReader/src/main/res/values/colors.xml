@@ -29,6 +29,7 @@
     <color name="divider">#BDBDBD</color>
     <color name="text_primary_article_detail">#fff0cc</color>
     <color name="text_secondary_article_detail">#ffe8af</color>
+    <color name="color_item_list">#fff6de</color>
 
 
 </resources>

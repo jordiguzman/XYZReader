@@ -98,6 +98,7 @@ public class ArticleListActivity extends AppCompatActivity implements
         StaggeredGridLayoutManager sglm =
                 new StaggeredGridLayoutManager(columnCount, StaggeredGridLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(sglm);
+
     }
 
     @Override
@@ -116,6 +117,7 @@ public class ArticleListActivity extends AppCompatActivity implements
         @Override
         public long getItemId(int position) {
             mCursor.moveToPosition(position);
+
             return mCursor.getLong(ArticleLoader.Query._ID);
         }
 
@@ -130,6 +132,7 @@ public class ArticleListActivity extends AppCompatActivity implements
                             ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))));
                 }
             });
+
             return vh;
         }
 
