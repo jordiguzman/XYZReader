@@ -60,11 +60,12 @@ public class ArticleDetailActivity extends AppCompatActivity
                         getResources().getDisplayMetrics()));
         mPager.setPageMarginDrawable(new ColorDrawable(0x22000000));
 
+
         mPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageScrollStateChanged(int state) {
                 super.onPageScrollStateChanged(state);
-                //TODO borra lo de abajo
+
                 mUpButton.animate()
                         .alpha((state == ViewPager.SCROLL_STATE_IDLE) ? 1f : 0f)
                         .setDuration(300);
@@ -81,7 +82,7 @@ public class ArticleDetailActivity extends AppCompatActivity
             }
         });
 
-      //TODO borra lo de abajo
+
         mUpButtonContainer = findViewById(R.id.up_container);
 
         mUpButton = findViewById(R.id.action_up);
@@ -106,7 +107,7 @@ public class ArticleDetailActivity extends AppCompatActivity
             });
         }
 
-        //TODO hasta aquí
+
         if (savedInstanceState == null) {
             if (getIntent() != null && getIntent().getData() != null) {
                 mStartId = ItemsContract.Items.getItemId(getIntent().getData());
@@ -114,6 +115,7 @@ public class ArticleDetailActivity extends AppCompatActivity
             }
         }
     }
+
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
@@ -184,4 +186,5 @@ public class ArticleDetailActivity extends AppCompatActivity
             return (mCursor != null) ? mCursor.getCount() : 0;
         }
     }
+
 }

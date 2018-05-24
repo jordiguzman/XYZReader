@@ -11,6 +11,7 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.graphics.Palette;
 import android.text.Html;
@@ -244,7 +245,7 @@ public class ArticleDetailFragment extends Fragment implements
                         public void onResponse(ImageLoader.ImageContainer imageContainer, boolean b) {
                             Bitmap bitmap = imageContainer.getBitmap();
                             if (bitmap != null) {
-                                Palette p = Palette.generate(bitmap, 24);
+                                Palette p = Palette.from(bitmap).generate();
                                 mMutedColor = p.getDarkMutedColor(0xFF333333);
                                 mPhotoView.setImageBitmap(imageContainer.getBitmap());
                                 mRootView.findViewById(R.id.meta_bar)
@@ -268,7 +269,13 @@ public class ArticleDetailFragment extends Fragment implements
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+
         return ArticleLoader.newInstanceForItemId(getActivity(), mItemId);
+    }
+
+
+    public void showSnackBar(){
+        Snackbar.make(mRootView, R.string.articles_load, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
@@ -288,6 +295,7 @@ public class ArticleDetailFragment extends Fragment implements
         }
 
         bindViews();
+        showSnackBar();
     }
 
     @Override

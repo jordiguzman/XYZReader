@@ -11,5 +11,6 @@
     <string name="by">by</string>
     <string name="error_config">Please check your internet connection.</string>
     <string name="load_finish">All item are load.</string>
+    <string name="articles_load">Articles load.</string>
 
 </resources>
